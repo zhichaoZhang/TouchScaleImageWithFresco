@@ -1,11 +1,12 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'//一个方便上传工程到bintray的工具
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.zzc.android.touchsaclewithfresco"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -17,14 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':library')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
 
     //图片框架
     compile 'com.facebook.fresco:fresco:0.6.0'
@@ -33,3 +36,14 @@ dependencies {
     //界面控件注入框架
     compile 'com.jakewharton:butterknife:6.1.0'
 }
+
+publish {
+    userOrg = 'joye'
+    groupId = 'com.zzc'
+    artifactId = 'com.joye.touchscalewithfresco'
+    publishVersion = '0.1.0'
+    desc = 'one component of touch scale image with fresco'
+    website = 'https://github.com/zhichaoZhang/TouchScaleImage'
+}
+
+

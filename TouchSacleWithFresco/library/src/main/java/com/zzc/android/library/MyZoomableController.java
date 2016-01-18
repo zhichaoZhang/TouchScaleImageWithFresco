@@ -1,4 +1,4 @@
-package com.zzc.android.touchsaclewithfresco;
+package com.zzc.android.library;
 
 import android.graphics.PointF;
 import android.os.Handler;

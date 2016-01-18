@@ -1,4 +1,4 @@
-package com.zzc.android.touchsaclewithfresco;
+package com.zzc.android.library;
 
 /**
  * Created by zczhang on 15/12/19.

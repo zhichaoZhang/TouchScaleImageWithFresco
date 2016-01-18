@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.zzc.android.library.ScaleImagePopWindow;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

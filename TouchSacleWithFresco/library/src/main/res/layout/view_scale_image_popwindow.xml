@@ -6,7 +6,7 @@
     android:background="@android:color/black"
     android:orientation="vertical">
 
-    <com.zzc.android.touchsaclewithfresco.ZoomableDraweeView
+    <com.zzc.android.library.ZoomableDraweeView
         android:id="@+id/dv_big_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

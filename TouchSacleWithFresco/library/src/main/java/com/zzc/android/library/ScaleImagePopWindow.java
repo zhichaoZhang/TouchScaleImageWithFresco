@@ -1,4 +1,4 @@
-package com.zzc.android.touchsaclewithfresco;
+package com.zzc.android.library;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.interfaces.DraweeController;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 
 /**
  * Created by zczhang on 15/12/18.
@@ -27,7 +27,6 @@ public class ScaleImagePopWindow extends PopupWindow implements MyZoomableContro
     private static final int SCALE_STATUS_NORMAL = 0;//正常显示
     private static final int SCALE_STATUS_MATCH_WIDTH_OR_HEIGHT = 1;//横向或纵向充满屏幕
     private static final int SCALE_STATUS_ORIGIN_PIC = 2;//显示图片原尺寸
-    @InjectView(R.id.dv_big_image)
     ZoomableDraweeView dvBigImage;
     private String picUrl;//图片地址
     private Context context;
@@ -67,10 +66,11 @@ public class ScaleImagePopWindow extends PopupWindow implements MyZoomableContro
         ((Activity) context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View view = LayoutInflater.from(context).inflate(R.layout.view_scale_image_popwindow, null);
+        dvBigImage = (ZoomableDraweeView)view.findViewById(R.id.dv_big_image);
         setContentView(view);
         ButterKnife.inject(this, view);
         if (TextUtils.isEmpty(picUrl)) {
-            Toast.makeText(context, "Picture url can not be empty", Toast.LENGTH_SHORT);
+            Toast.makeText(context, "Picture url can not be empty", Toast.LENGTH_SHORT).show();
         } else {
 
 //            screenRatio = Float.parseFloat(MoneyUtil.divide(String.valueOf(screenHeight), String.valueOf(screenWidth)));//屏幕宽高比

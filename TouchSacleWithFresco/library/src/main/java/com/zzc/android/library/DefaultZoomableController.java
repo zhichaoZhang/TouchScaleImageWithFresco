@@ -1,4 +1,4 @@
-package com.zzc.android.touchsaclewithfresco;
+package com.zzc.android.library;
 
 /**
  * Created by zczhang on 15/12/19.
@@ -250,7 +250,7 @@ public class DefaultZoomableController
      * Resets any previous transform and cancels the current gesture if one is happening.
      *
      * @param scale desired scale, will be limited to {min, max} scale factor
-     * @param imagePoint 2D point in image's relative coordinate system (i.e. 0 <= x, y <= 1)
+     * @param imagePoint 2D point in image's relative coordinate system
      */
     public void zoomToImagePoint(float scale, PointF imagePoint) {
         if (mGestureDetector.isGestureInProgress()) {
