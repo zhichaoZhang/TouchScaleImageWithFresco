@@ -109,7 +109,8 @@ public class ScaleImagePopWindow extends PopupWindow implements MyZoomableContro
         setFocusable(true);
         setOutsideTouchable(true);
         setTouchable(true);
-//        setBackgroundDrawable(context.getResources().getDrawable(R.color.palette_black));
+        setBackgroundDrawable(context.getResources().getDrawable(android.R.color.black));
+
 //        setAnimationStyle(R.style.popwin_scale_image_style);
     }
 
@@ -135,22 +136,22 @@ public class ScaleImagePopWindow extends PopupWindow implements MyZoomableContro
 
     @Override
     public void onDoubleClick() {
-        if (currentScaleStatus == SCALE_STATUS_NORMAL) {
-            myZoomableController.zoom(matchScreenScale);
-            currentScaleStatus = SCALE_STATUS_MATCH_WIDTH_OR_HEIGHT;
-            return;
-        }
-
-        if (currentScaleStatus == SCALE_STATUS_MATCH_WIDTH_OR_HEIGHT) {
-            myZoomableController.zoom(recoveryOriginScale);
-            currentScaleStatus = SCALE_STATUS_ORIGIN_PIC;
-            return;
-        }
-
-        if (currentScaleStatus == SCALE_STATUS_ORIGIN_PIC) {
-            myZoomableController.zoom(normaScale);
-            currentScaleStatus = SCALE_STATUS_NORMAL;
-            return;
-        }
+//        if (currentScaleStatus == SCALE_STATUS_NORMAL) {
+//            myZoomableController.zoom(matchScreenScale);
+//            currentScaleStatus = SCALE_STATUS_MATCH_WIDTH_OR_HEIGHT;
+//            return;
+//        }
+//
+//        if (currentScaleStatus == SCALE_STATUS_MATCH_WIDTH_OR_HEIGHT) {
+//            myZoomableController.zoom(recoveryOriginScale);
+//            currentScaleStatus = SCALE_STATUS_ORIGIN_PIC;
+//            return;
+//        }
+//
+//        if (currentScaleStatus == SCALE_STATUS_ORIGIN_PIC) {
+//            myZoomableController.zoom(normaScale);
+//            currentScaleStatus = SCALE_STATUS_NORMAL;
+//            return;
+//        }
     }
 }

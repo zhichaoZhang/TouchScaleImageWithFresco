@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 /**
+ * 支持双击缩放的控制器
+ *
  * Created by zczhang on 15/12/19.
  */
 public class MyZoomableController extends DefaultZoomableController {
@@ -13,7 +15,7 @@ public class MyZoomableController extends DefaultZoomableController {
     private OnClickListener clickListener;
     private static final int MAX_INTERVAL_FOR_CLICK = 250;
     private static final int MAX_DISTANCE_FOR_CLICK = 100;
-    private static final int MAX_DOUBLE_CLICK_INTERVAL = 500;
+    private static final int MAX_DOUBLE_CLICK_INTERVAL = 400;
     int mDownX = 0;
     int mDownY = 0;
     int mTempX = 0;
@@ -28,7 +30,7 @@ public class MyZoomableController extends DefaultZoomableController {
         super(gestureDetector);
         setRotationEnabled(false);
         setMinScaleFactor(0.5f);
-        setMaxScaleFactor(10.0f);
+        setMaxScaleFactor(5.0f);
     }
 
     /**
@@ -36,9 +38,13 @@ public class MyZoomableController extends DefaultZoomableController {
      */
     private void doubleScale() {
         if (isCurrentBig) {
+            System.out.println("-------缩小-----");
+            System.out.println("-------mDownX-----"+mDownX);
+            System.out.println("-------mDownY-----"+mDownY);
             isCurrentBig = false;
             zoomToImagePoint(1.0f, new PointF(mDownX, mDownY));
         } else {
+            System.out.println("-------放大----");
             isCurrentBig = true;
             zoomToImagePoint(2.0f, new PointF(mDownX, mDownY));
         }
@@ -127,11 +133,11 @@ public class MyZoomableController extends DefaultZoomableController {
                 }
             } else {
                 Log.d(LOG_TAG,
-                        "The mTimerForSecondClick has executed, the doubleclick has executed ,so do thing");
+                        "The mTimerForSecondClick has executed, the doubleclick has executed ,so do nothing");
 //                if (clickListener != null) {
 //                    clickListener.onDoubleClick();
 //                }
-                doubleScale();
+//                doubleScale();
             }
         }
     };
